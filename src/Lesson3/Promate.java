@@ -8,7 +8,9 @@ public class Promate {
         int i = 5000;
         float f = 5.67f;
         double d = 123.123;
-        double result = (f * b) + (i / c)- (d + s);
-        System.out.println("(f * b) + (i / c) - (d + s)");
+        double result = (f * b) + (i / c) - (d + s);
+        System.out.println((f * b) + "+" + (i / c) + "-" + (d + s));
+        System.out.println("result =" + result);
+
     }
 }
