@@ -1,7 +1,7 @@
-package Clas11;
+package Lesson3;
 
 public class HelloWorld {
     public static void main(String[] args) {
-        System.out.println("hellp");
+        System.out.println("Hello World");
     }
 }
