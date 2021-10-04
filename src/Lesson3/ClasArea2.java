@@ -10,6 +10,8 @@ public class ClasArea2 {
         pi = 3.1416; // մոտավոր pi արժեքը
         a = pi * r * r; // շրջանագծի մակերեսը հաշվարկը
         System.out.println(" շրջանագծի մակերեսը հավասար է " + a + "սմ/քառ");
+        a = a / 2;
+        System.out.println("a =" + a);
     }
 
 }
