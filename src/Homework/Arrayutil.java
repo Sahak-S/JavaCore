@@ -33,6 +33,7 @@ public class Arrayutil {
 
         // Միջին արժեքը
         double k = 0;
+
         for (int i = 0; i < array.length; i++) {
             k += array[i] / array.length;
         }
@@ -43,7 +44,13 @@ public class Arrayutil {
         for (int i = 0; i < array.length; i++) {
             sum += array[i];
         }
+
         System.out.println("Ստրինգի թվերի գումարն հավասար է " + sum);
+        int z = 632;
+        int x;
+        x = z / array.length;
+        System.out.println("Միջին թվաբանականը հավասար է =" + x);
+
 
         // Զույգ թվերը
         for (int i = 0; i < array.length; i++) {
