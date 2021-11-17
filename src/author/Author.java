@@ -2,7 +2,7 @@ package author;
 
 public class Author {
 
-
+    //եթե ուզումենք կոնսուլում,մեր գրացը հայերեն տպի,ուղակի պիտի գլոբալ փոփոխականները հայերեն գրենք:
 
     private String name;                // անուն
     private String surnname;            // ազգանուն
