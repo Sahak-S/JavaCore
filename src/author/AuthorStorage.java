@@ -2,38 +2,46 @@ package author;
 
 public class AuthorStorage {
 
-    private Author[] array = new Author[10];
+    private Author[] authors = new Author[10];
     private int size = 0;
 
     public void add(Author author) {
-        if (size == array.length) {
+        if (size == authors.length) {
             extend();
 
         }
-        array[size++] = author;
+        authors[size++] = author;
 
     }
     private void extend() {
-        Author[] array1 = new Author[array.length + 10];
-        for (int i = 0; i < array.length; i++) {
-            array1[i] = array[i];
-        }
-        array = array1;
+        Author[] temp = new Author[authors.length + 10];
+        System.arraycopy(authors, 0, temp, 0, authors.length);
+        authors = temp;
     }
 
     //Եթե տրված ինդեքսը մեր ունեցած մասիվի ինդեքսի սահմաններում է
     // վերադարձնել մասիվի index-երրորդ էլեմենտները,հակառակ դեպքում վերադարձնել -1:
-    public Author getByIndex(int index) {
-        if (index < 0 || index > size) {
-            return null;
-        }
-        return array[index];
-
-    }
 
     public void print() {
         for (int i = 0; i < size; i++) {
-            System.out.print(array[i] + " ");
+            System.out.print(authors[i] + " ");
+        }
+    }
+
+    public void searchAuthor(String keyword){
+        for (int i = 0; i < size; i++) {
+            if (authors[i].getName().contains(keyword) || authors[i].getSurnname().contains(keyword)){
+                System.out.println(authors[i]);
+            }
+        }
+
+    }
+
+    public void searchAuthorByAge(int minAge,int maxAge){
+        for (int i = 0; i < size; i++) {
+            if (authors[i].getAge() >= minAge && authors[i].getAge() <= maxAge){
+                System.out.println(authors[i]);
+            }
         }
     }
     

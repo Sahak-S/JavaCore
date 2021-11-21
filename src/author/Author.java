@@ -18,7 +18,7 @@ public class Author {
         this.age = age;
         this.gender = gender;
     }
-    public Author() {
+    public Author(String poxos, String poxosyan, String email, String s, String male) {
 
     }
 
