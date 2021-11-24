@@ -1,25 +1,24 @@
 package author;
 
+import java.nio.charset.Charset;
+
 public class Author {
 
-    //եթե ուզումենք կոնսուլում,մեր գրացը հայերեն տպի,ուղակի պիտի գլոբալ փոփոխականները հայերեն գրենք:
+    private String name;
+    private String surnname;
+    private int age;
+    private String email;
+    private String gender;
 
-    private String name;                // անուն
-    private String surnname;            // ազգանուն
-    private String email;               // էլհասցե
-    private int age;                    // տրիք
-    private String gender;              // սեռ
-
-
-    public Author(String name, String surnname, String email, int age, String gender) {
+    public Author(String name, String surnname, int age, String email, String gender) {
         this.name = name;
         this.surnname = surnname;
-        this.email = email;
         this.age = age;
+        this.email = email;
         this.gender = gender;
     }
-    public Author(String poxos, String poxosyan, String email, String s, String male) {
 
+    public Author() {
     }
 
     public String getName() {
@@ -38,20 +37,20 @@ public class Author {
         this.surnname = surnname;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public int getAge() {
         return age;
     }
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getGender() {
@@ -67,9 +66,16 @@ public class Author {
         return "Author{" +
                 "name='" + name + '\'' +
                 ", surnname='" + surnname + '\'' +
-                ", email='" + email + '\'' +
                 ", age=" + age +
+                ", email='" + email + '\'' +
                 ", gender='" + gender + '\'' +
                 '}';
+    }
+
+    public void setAuthor(String name, String surname, String gender, int age){
+
+    }
+
+    public void setSurname(String name) {
     }
 }

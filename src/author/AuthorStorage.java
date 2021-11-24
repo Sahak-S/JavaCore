@@ -2,7 +2,7 @@ package author;
 
 public class AuthorStorage {
 
-    private Author[] authors = new Author[10];
+    private Author[] authors = new Author[16];
     private int size = 0;
 
     public void add(Author author) {
@@ -13,6 +13,7 @@ public class AuthorStorage {
         authors[size++] = author;
 
     }
+
     private void extend() {
         Author[] temp = new Author[authors.length + 10];
         System.arraycopy(authors, 0, temp, 0, authors.length);
@@ -28,21 +29,50 @@ public class AuthorStorage {
         }
     }
 
-    public void searchAuthor(String keyword){
+    public void searchAuthor(String keyword) {
         for (int i = 0; i < size; i++) {
-            if (authors[i].getName().contains(keyword) || authors[i].getSurnname().contains(keyword)){
+            if (authors[i].getName().contains(keyword) || authors[i].getSurnname().contains(keyword)) {
                 System.out.println(authors[i]);
             }
         }
 
     }
 
-    public void searchAuthorByAge(int minAge,int maxAge){
+
+    public void searchByAge(int minAge, int maxAge) {
         for (int i = 0; i < size; i++) {
-            if (authors[i].getAge() >= minAge && authors[i].getAge() <= maxAge){
+            if (authors[i].getAge() >= minAge && authors[i].getAge() <= maxAge) {
                 System.out.println(authors[i]);
             }
         }
     }
-    
+
+    public Author getByEmail(String email) {
+
+        for (int i = 0; i < size; i++) {
+            if (authors[i].getEmail().equals(email)) {
+                return authors[i];
+            }
+        }
+        return null;
+    }
+
+    public Author getByEmail() {
+        for (int i = 0; i < size; i++) {
+            return authors[i];
+        }
+        return null;
+    }
+
+
+    public void searchByName(String keyword) {
+        for (int i = 0; i < size; i++) {
+            if (authors[i].getName().contains(keyword) ||
+                    authors[i].getSurnname().contains(keyword)) {
+                System.out.println(authors[i]);
+            }
+        }
+
+    }
+
 }
