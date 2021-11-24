@@ -18,7 +18,7 @@ public class Author {
         this.gender = gender;
     }
 
-    public Author() {
+    public Author(String william, String shakespeare, String s, int i, String male) {
     }
 
     public String getName() {
