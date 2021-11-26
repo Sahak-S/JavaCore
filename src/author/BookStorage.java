@@ -25,9 +25,10 @@ public class BookStorage {
             System.out.print(books[i] + " ");
         }
     }
+
     public void searchByTitle(String keyword) {
         for (int i = 0; i < size; i++) {
-            if (books[i].getTitle().contains(keyword)){
+            if (books[i].getTitle().contains(keyword)) {
                 System.out.println(books[i]);
             }
 
@@ -37,35 +38,64 @@ public class BookStorage {
 
     public void searchByEmail(String email) {
         for (int i = 0; i < size; i++) {
-            if (books[i].getAuthor().getEmail().equals(email)){
+            if (books[i].getAuthor().getEmail().equals(email)) {
                 System.out.println(books[i]);
-            }else {
+            } else {
                 System.out.println("invalid email");
             }
 
         }
     }
-    public void countByAuthor(String emile){
+
+    public void countByAuthor(String emile) {
         int count = 0;
         for (int i = 0; i < size; i++) {
             if (books[i].getAuthor().getEmail().equals(emile)) {
                 count++;
-            } else {
-                System.err.println("invalid email");
             }
         }
         System.out.println("Author with this email has " + count + " writhed books");
     }
 
-    public Book getTitle(String title){
-        for ( int i = 0; i < size; i++) {
+    public Book getTitle(String title) {
+        for (int i = 0; i < size; i++) {
             if (books[i].getTitle().equals(title)) {
                 return books[i];
-            } else {
-                System.err.println("invalid title");
             }
         }
         return null;
 
+    }
+
+    public void deleteBook(String title) {
+
+        for (int i = 0; i < size; i++) {
+            if (books[i].getTitle().equals(title)) {
+                deleteBook(title);
+                System.out.println("The book has been deleted");
+                System.out.println("Գիրքը ջնջվել է");
+
+            }
+
+        }
+    }
+
+    public Book getByAuthor(Author author) {
+        for (int i = 0; i < size; i++) {
+            if (books[i].getAuthor().equals(author)){
+                return books[i];
+            }
+        }
+        return null;
+    }
+
+    public void deleteBookofAuthors(Author author) {
+        for (int i = 0; i < size; i++) {
+            if (books[i].getAuthor().equals(author)){
+
+                deleteBookofAuthors(author);
+            }
+
+        }
     }
 }

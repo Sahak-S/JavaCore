@@ -20,10 +20,13 @@ public class AuthorTest {
     private static final String COUNT_BOOKS_BY_AUTHOR = "9";
     private static final String CHANGE_AUTHOR = "10";
     private static final String CHANGE_BOOK_AUTHOR = "11";
+    private static final String DELETE_BY_AUTHOR = "12";
+    private static final String DELETE_AUTHOR = "13";
+    private static final String DELETE_BOOK = "14";
 
     public static void main(String[] args) {
 
-        bookStorage.add(new Book("Hamlet", "tragedy","5000",10));
+        bookStorage.add(new Book("Hamlet", "tragedy", "5000", 10));
         authorStorage.add(new Author("William", "Shakespeare", "Shakspir@mail.ru", 420, "male"));
         authorStorage.add(new Author("poxos", "poxosyan", 22, "poxos@mail.com", "male"));
         authorStorage.add(new Author("poxosuhi", "poxosyan", 33, "poxosuhi@mail.com", "female"));
@@ -71,11 +74,50 @@ public class AuthorTest {
                 case CHANGE_BOOK_AUTHOR:
                     changeBookAuthor();
                     break;
+                case DELETE_BY_AUTHOR:
+                    deleteByAuthor();
+                    break;
+                case DELETE_AUTHOR:
+                    deleteAuthor();
+                    break;
+                case DELETE_BOOK:
+                    deleteBook();
+                    break;
                 default:
                     System.out.println("Invalid command!");
             }
 
         }
+    }
+
+    private static void deleteByAuthor() {
+        System.out.println("Please enter email of author");
+        System.out.println("Խնդրում ենք մուտքագրել հեղինակի էլ");
+        String email =scanner.nextLine();
+        Author author = authorStorage.getByEmail(email);
+        if (author != null){
+            Book book = bookStorage.getByAuthor(author);
+            if (book != null){
+                bookStorage.deleteBookofAuthors(author);
+            }
+        }
+
+    }
+
+    private static void deleteAuthor() {
+        System.out.println("Please enter the address to delete the author");
+        System.out.println("Խնդրում ենք մուտքագրել հասցեն՝ հեղինակին ջնջելու համար");
+        String email = scanner.nextLine();
+        Author author = authorStorage.getByEmail(email);
+        authorStorage.deleteByAuthor(email);
+    }
+
+    private static void deleteBook() {
+        System.out.println("please delete title of books");
+        System.out.println("խնդրում եմ ջնջել գրքերի անվանումը");
+        String title = scanner.nextLine();
+        Book book = bookStorage.getTitle(title);
+        bookStorage.deleteBook(title);
     }
 
     private static void changeBookAuthor() {
@@ -197,6 +239,11 @@ public class AuthorTest {
         System.out.println("please input " + COUNT_BOOKS_BY_AUTHOR + " for count book by author");
         System.out.println("please input " + CHANGE_AUTHOR + " for change author");
         System.out.println("please input " + CHANGE_BOOK_AUTHOR + " for change book`s author" + "\u001B[0m");
+        System.out.println("please input " + DELETE_BY_AUTHOR + " for delete by author" + "\u001B[0m");
+        System.out.println("please input " + DELETE_AUTHOR + " for delete author" + "\u001B[0m");
+        System.out.println("please input " + DELETE_BOOK + " for delete book" + "\u001B[0m");
+
+
     }
 
     private static void searchByName() {

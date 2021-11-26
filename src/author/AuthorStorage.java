@@ -74,5 +74,23 @@ public class AuthorStorage {
         }
 
     }
+    public void deleteByAuthor(String email) {
+        for (int i = 0; i <size; i++) {
+            if (authors[i].getEmail().equals(email)){
+                deleteByAuthor(email);
+                System.out.println("The author has been deleted");
+                System.out.println("Հեղինակը ջնջվել է");
 
+            }
+
+        }
+
+    }
+
+    public void deleteByAuthor() {
+
+
+    }
 }
+
+
