@@ -1,6 +1,7 @@
 package author;
 
 import java.nio.charset.Charset;
+import java.util.Objects;
 
 public class Author {
 
@@ -22,6 +23,7 @@ public class Author {
     }
 
     public String getName() {
+
         return name;
     }
 
@@ -32,9 +34,7 @@ public class Author {
     public String getSurnname() {
         return surnname;
     }
-
-    public void setSurnname(String surnname) {
-        this.surnname = surnname;
+    public void setSurname(String surname) {
     }
 
     public int getAge() {
@@ -62,6 +62,19 @@ public class Author {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        return age == author.age && Objects.equals(name, author.name) && Objects.equals(surnname, author.surnname) && Objects.equals(email, author.email) && Objects.equals(gender, author.gender);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surnname, age, email, gender);
+    }
+
+    @Override
     public String toString() {
         return "Author{" +
                 "name='" + name + '\'' +
@@ -72,10 +85,5 @@ public class Author {
                 '}';
     }
 
-    public void setAuthor(String name, String surname, String gender, int age){
 
-    }
-
-    public void setSurname(String name) {
-    }
 }

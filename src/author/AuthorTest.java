@@ -26,7 +26,7 @@ public class AuthorTest {
 
     public static void main(String[] args) {
 
-        bookStorage.add(new Book("Hamlet", "tragedy", "5000", 10));
+        bookStorage.add(new Book("Hamlet", "tragedy", "5000",10));
         authorStorage.add(new Author("William", "Shakespeare", "Shakspir@mail.ru", 420, "male"));
         authorStorage.add(new Author("poxos", "poxosyan", 22, "poxos@mail.com", "male"));
         authorStorage.add(new Author("poxosuhi", "poxosyan", 33, "poxosuhi@mail.com", "female"));

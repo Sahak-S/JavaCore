@@ -57,6 +57,8 @@ public class BookStorage {
         System.out.println("Author with this email has " + count + " writhed books");
     }
 
+
+
     public Book getTitle(String title) {
         for (int i = 0; i < size; i++) {
             if (books[i].getTitle().equals(title)) {
@@ -79,6 +81,12 @@ public class BookStorage {
 
         }
     }
+    private void deleteByIndex(int index) {
+        for (int j = index + 1; j < size; j++) {
+            books[j - 1] = books[j];
+        }
+        size--;
+    }
 
     public Book getByAuthor(Author author) {
         for (int i = 0; i < size; i++) {
@@ -93,9 +101,29 @@ public class BookStorage {
         for (int i = 0; i < size; i++) {
             if (books[i].getAuthor().equals(author)){
 
-                deleteBookofAuthors(author);
+                deleteByIndex(i);
             }
 
         }
     }
+
+
+//    public void deleteBook(String title) {
+//        for (int i = 0; i < size; i++) {
+//            if (books[i].getTitle().equals(title)) {
+//                deleteByIndex(i);
+//                System.out.println("The book has been deleted");
+//            }
+//        }
+//    }
+//
+//    private void deleteByIndex(int index) {
+//        for (int j = index + 1; j < size; j++) {
+//            books[j - 1] = books[j];
+//            for (int i = 0; i < size; i++) {
+//                for (int j = index + 1; j < size; j++) {
+//                    books[j - 1] = books[j];
+//                }
+//                size--;
+//            }
 }

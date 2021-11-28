@@ -17,7 +17,6 @@ public class Book {
 
     public Book(String title, String description, double price, int count, Author author) {
     }
-
     public String getTitle() {
         return title;
     }
