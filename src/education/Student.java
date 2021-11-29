@@ -9,9 +9,9 @@ public class Student {
     private int age;
     private String email;
     private String phone;
-    private String lesson;
+    private Lesson lesson;
 
-    public Student(String name, String surname, int age, String email, String phone, String lesson) {
+    public Student(String name, String surname, int age, String email, String phone, Lesson lesson) {
         this.name = name;
         this.surname = surname;
         this.age = age;
@@ -20,7 +20,7 @@ public class Student {
         this.lesson = lesson;
     }
 
-    public Student() {
+    public Student(String studentDatum, String datum, int age, String email, String phone, String s) {
     }
 
     public String getName() {return name;}
@@ -59,9 +59,11 @@ public class Student {
         this.phone = phone;
     }
 
-    public String getLesson () {return lesson;}
+    public Lesson getLesson() {
+        return lesson;
+    }
 
-    public void setLesson(String lesson) {
+    public void setLesson(Lesson lesson) {
         this.lesson = lesson;
     }
 
