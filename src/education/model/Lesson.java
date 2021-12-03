@@ -1,37 +1,34 @@
-package education;
+package education.model;
 
 import java.util.Objects;
 
 public class Lesson {
 
-    private String name;
-    private String  duration;       // դասընթացի տևողությունն է
+    private String lessonName;
+    private double duration;       // դասընթացի տևողությունն է
     private String lecturerName;    //դասախոսի անունն է
-    private String price;           //դասընթացի գինն է
+    private int price;           //դասընթացի գինն է
 
-    public Lesson(String name, String duration, String lecturerName, String price) {
-        this.name = name;
+    public Lesson(String lessonName, double duration, String lecturerName, int price) {
+        this.lessonName = lessonName;
         this.duration = duration;
         this.lecturerName = lecturerName;
         this.price = price;
     }
 
-    public Lesson() {
+    public String getLessonName() {
+        return lessonName;
     }
 
-    public String getName() {
-        return name;
+    public void setLessonName(String lessonName) {
+        this.lessonName = lessonName;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDuration() {
+    public double getDuration() {
         return duration;
     }
 
-    public void setDuration(String duration) {
+    public void setDuration(double duration) {
         this.duration = duration;
     }
 
@@ -43,11 +40,11 @@ public class Lesson {
         this.lecturerName = lecturerName;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -56,21 +53,23 @@ public class Lesson {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Lesson lesson = (Lesson) o;
-        return Objects.equals(name, lesson.name) && Objects.equals(duration, lesson.duration) && Objects.equals(lecturerName, lesson.lecturerName) && Objects.equals(price, lesson.price);
+        return Objects.equals(lessonName, lesson.lessonName) && Objects.equals(duration, lesson.duration) && Objects.equals(lecturerName, lesson.lecturerName) && Objects.equals(price, lesson.price);
     }
+
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, duration, lecturerName, price);
+        return Objects.hash(lessonName, duration, lecturerName, price);
     }
 
     @Override
     public String toString() {
         return "Lesson{" +
-                "name='" + name + '\'' +
+                "lessonName='" + lessonName + '\'' +
                 ", duration='" + duration + '\'' +
                 ", lecturerName='" + lecturerName + '\'' +
                 ", price='" + price + '\'' +
                 '}';
     }
+
 }

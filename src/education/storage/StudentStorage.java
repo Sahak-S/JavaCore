@@ -1,6 +1,9 @@
-package education;
+package education.storage;
 
-import Homework.author.Author;
+import education.model.Student;
+import education.util.ArrayUtil;
+
+import java.util.Arrays;
 
 public class StudentStorage {
 
@@ -20,15 +23,6 @@ public class StudentStorage {
         students = tmp;
     }
 
-//    public Student getByLesson(String lesson) {
-//        for (int i = 0; i < size; i++) {
-//            if (students[i].getLesson().equals(lesson)) {
-//                return students[i];
-//            }
-//        }
-//        return null;
-//    }
-
     public Student getByEmail(String email) {
         for (int i = 0; i < size; i++) {
             if (students[i].getEmail().equals(email)) {
@@ -44,23 +38,18 @@ public class StudentStorage {
         }
     }
 
-    public void deleteStudentByEmail(String email) {
-        for (int i = 0; i < size; i++) {
-            if (students[i].getEmail().equals(email)) {
-                deleteByIndex(i);
-                System.out.println("The student has been deleted ");
-                System.out.println("Աշակերտը ջնջվել է");
-
+    public void deleteByEmail(String email) {
+        if (email != null) {
+            for (int i = 0; i < size; i++) {
+                if (students[i].getEmail().equals(email)) {
+                    ArrayUtil.deleteByIndex(students, i, size);
+                    size--;
+                    System.out.println("The student has been deleted ");
+                    System.out.println("Աշակերտը ջնջվել է");
+                    break;
+                }
             }
         }
-    }
-
-    private void deleteByIndex(int index) {
-        for (int j = index + 1; j < size; j++) {
-            students[j - 1] = students[j];
-        }
-        size--;
-
     }
 
     public Student getByLesson(String lesson) {
@@ -69,14 +58,14 @@ public class StudentStorage {
                 return students[i];
         }
         return null;
-        
+
     }
 
 
     public Student printByLesson(String lesson) {
         if (lesson != null) {
             for (int i = 0; i < size; i++) {
-                if (students[i].getLesson().equals(lesson)) {
+                if (Arrays.toString(students[i].getLesson()).contains(lesson)) {
                     System.out.println(students[i]);
                 }
             }
@@ -84,4 +73,6 @@ public class StudentStorage {
         return null;
 
     }
+
+
 }

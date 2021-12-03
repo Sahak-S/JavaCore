@@ -1,4 +1,7 @@
-package education;
+package education.storage;
+
+import education.model.Lesson;
+import education.util.ArrayUtil;
 
 public class LessonStorage {
 
@@ -24,31 +27,26 @@ public class LessonStorage {
         }
     }
 
-    public Lesson getByName(String name) {
-        for (int i = 0; i < size; i++) {
-            if (lessons[i].getName().equals(name)) {
-                return lessons[i];
-            }
-        }
-        return null;
-    }
 
-
-    public void deleteLessonByName(String name) {
+    public void deleteLesson(String lesson) {
         for (int i = 0; i < size; i++) {
-            if (lessons[i].getName().equals(name)) {
-                deleteByIndex(i);
+            if (lessons[i].getLessonName().equals(lesson)) {
+                ArrayUtil.deleteByIndex(lessons,i,size);
+                size--;
                 System.out.println("The lesson has been deleted");
                 System.out.println("Դասը ջնջված է");
+                break;
             }
         }
     }
 
-    private void deleteByIndex(int index) {
-        for (int j = index + 1; j < size; j++) {
-            lessons[j - 1] = lessons[j];
+    public Lesson getByLessonName(String lessonName) {
+
+        for (int i = 0; i < size; i++) {
+            if (lessons[i].getLessonName().equals(lessonName))
+                return lessons[i];
         }
-        size--;
+        return null;
     }
 
 }
