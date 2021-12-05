@@ -1,6 +1,7 @@
 package packagesAnderfaces;
 
 public class MyIFimp2 implements MyIF{
+
     @Override
     public int getNunber() {
         return 1000;

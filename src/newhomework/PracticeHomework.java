@@ -3,14 +3,17 @@ package newhomework;
 public class PracticeHomework {
 
     //փոխակերպել տրված րոպեն վայրկյանի ու վերադարձնել
+
     long convert(int minuts) {
         return minuts * 60;
     }
     //ընդունել տարին, վերադարձնել օրերի քանակը։
+
     int calcAge(int years) {
         return years * 365;
     }
     //վերադարձնել տրված թվի հաջորդ թիվը
+
     int nextNumber(int number) {
         int nextNumber = number + 1;
         return number + 1;

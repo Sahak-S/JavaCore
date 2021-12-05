@@ -10,5 +10,7 @@ public interface MyIF {
 
     static int getDefoltNumber() {
         return 123;
+
     }
+
 }

@@ -5,10 +5,13 @@ public class ArrayUtil {
     public static void main(String[] args) {
 
         int[] array = {1, 54, 26, 15, 4, 48, 232, 25, 0, 5};
+
         //Տպեք մասիվի բոլոր էլեմենտները
+
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
         }
+
         System.out.println();
         //Տպեք մասիվի ամենամեծ թիվը
         int max = array[0];

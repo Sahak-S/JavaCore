@@ -6,7 +6,9 @@ public class DefaultMethodDemo {
 
         MyIFimp obj = new MyIFimp();
         MyIFimp2 obj1 = new MyIFimp2();
+
         int deNum = MyIF.getDefoltNumber();
+
         System.out.println(obj.getNunber());
         System.out.println(obj.getString());
         System.out.println(obj1.getNunber());

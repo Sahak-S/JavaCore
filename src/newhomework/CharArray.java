@@ -5,6 +5,7 @@ public class CharArray {
     public static void main(String[] args) {
 
         //տվյալ մասիվը պետք է դասավորել մինիմումից մակսիմում
+
         int[] array = {7, 12, 54, 0, -4, 44, 17, 88, 4};
 
         for (int i = 0; i < array.length; i++) {

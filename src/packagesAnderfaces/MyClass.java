@@ -16,5 +16,6 @@ public class MyClass implements  B{
     @Override
     public void meth3() {
         System.out.println("Peaлизaция метода meth3()");
+
     }
 }
