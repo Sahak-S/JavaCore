@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Lesson {
 
+
     private String lessonName;
     private double duration;       // դասընթացի տևողությունն է
     private String lecturerName;    //դասախոսի անունն է

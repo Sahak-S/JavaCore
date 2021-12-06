@@ -2,8 +2,10 @@ package education;
 
 import education.model.Lesson;
 import education.model.Student;
+import education.model.User;
 import education.storage.LessonStorage;
 import education.storage.StudentStorage;
+import education.storage.UserStorage;
 import education.util.DateUtil;
 
 import java.text.ParseException;
@@ -15,10 +17,12 @@ public class LessonStudentTest implements LessonStudentComands {
     static Scanner scanner = new Scanner(System.in);
     static StudentStorage studentStorage = new StudentStorage();
     static LessonStorage lessonStorage = new LessonStorage();
+    static UserStorage userStorage = new UserStorage();
 
 
     public static void main(String[] args) throws ParseException {
 
+        userStorage.add(new User("poxos","poxosyan","poxos@mail.ru","poxos","admin"));
 
         Lesson[] lesson = new Lesson[2];
         lesson[0] = lessonStorage.getByLessonName("java");
@@ -30,12 +34,83 @@ public class LessonStudentTest implements LessonStudentComands {
                 "poxos.@mail.ru",
                 "094-94-94-23",
                 "lesson"));
+
+        boolean isRun = true;
+        while (isRun) {
+            LessonStudentComands.prinduserComands();
+            String command = scanner.nextLine();
+            switch (command) {
+                case EXIT:
+                    isRun = false;
+                    break;
+                case LOGIN:
+                    login();
+                    break;
+                case REGISTR:
+                    registr();
+                    break;
+                default:
+                    System.out.println("Invalid command!");
+                    System.out.println("Անվավեր հրաման");
+            }
+        }
+    }
+    private static void registr() {
+        System.out.println("pleas input name,surname,email,password,type");
+        System.out.println("խնդրում եմ մուտքագրել անուն, ազգանուն, էլ. փոստ, ծածկագիր, տեսակ");
+        String userDataStr = scanner.nextLine();
+        String[] userData = userDataStr.split(",");
+        if (userData.length == 5){
+            User user = new User();
+            user.setName(userData[0]);
+            user.setSurname(userData[1]);
+            user.setEmail(userData[2]);
+            user.setPassword(userData[3]);
+            user.setType(userData[4]);
+            userStorage.add(user);
+            System.out.println("Thank you, you have successfulli registered");
+            System.out.println("Շնորհակալություն, դուք հաջողությամբ գրանցվեցիք");
+        }else {
+            System.out.println("Wrong registration");
+            System.out.println("Սխալ գրանցում");
+        }
+
+
+    }
+
+
+
+    private static void login(int i) throws ParseException {
+        System.out.println("pleas input email,pasword");
+        System.out.println("խնդրում եմ մուտքագրել էլ. փոստ, գաղտնաբառ");
+        String emailPasword = scanner.nextLine();
+        String[] emailPasswordArr = emailPasword.split(",");
+        if (emailPasswordArr.length == 2) {
+            User user = userStorage.getUserByEmailAndPassword(emailPasswordArr[0], emailPasswordArr[1]);
+            if (user == null) {
+                System.out.println("invalid email or password");
+                System.out.println("սխալ էլ. հասցե կամ գաղտնաբառ");
+            } else {
+                userLogin();
+                System.out.println("e-mail Email, password added");
+                System.out.println("էլ. փոստ, գաղտնաբառ ավելացվեց");// ավելացրել եմ  userLogin(); մեթոդը
+            }
+        } else {
+            login();
+            System.out.println("e-mail Email, password added");
+            System.out.println("էլ. փոստ, գաղտնաբառ ավելացվեց");
+
+        }
+    }
+
+    private static void userLogin() throws ParseException {
+
         boolean isRun = true;
         while (isRun) {
             LessonStudentComands.printCommands();
             String command = scanner.nextLine();
             switch (command) {
-                case EXIT:
+                case LOGOUT:
                     isRun = false;
                     break;
                 case ADD_LESSON:
@@ -59,9 +134,18 @@ public class LessonStudentTest implements LessonStudentComands {
                 case DELETE_STUDENT_BY_EMAIL:
                     deleteStudentByEmail();
                     break;
-
+                case PRINT_REGISTR:
+                    printRegistr();
+                    break;
+                default:
+                    System.out.println("Invalid command!");
+                    System.out.println("Անվավեր հրաման");
             }
         }
+    }
+
+    private static void printRegistr() {
+        userStorage.print();
     }
 
     private static void deleteStudentByEmail() {
@@ -81,7 +165,7 @@ public class LessonStudentTest implements LessonStudentComands {
             System.out.println("դասը ջնջված է");
         } else
             System.out.println("this type of lesson dos not exist");
-            System.out.println("այս տեսակի դասերը գոյություն չունեն");
+        System.out.println("այս տեսակի դասերը գոյություն չունեն");
 
     }
 
@@ -170,5 +254,24 @@ public class LessonStudentTest implements LessonStudentComands {
         System.out.println("Շնորհակալություն, ուսանողն ավելացվեց");
     }
 
-}
 
+    private static void login() throws ParseException {
+        System.out.println("pleas input email,pasword");
+        System.out.println("խնդրում եմ մուտքագրել էլ. փոստ, գաղտնաբառ");
+        String emailPasword = scanner.nextLine();
+        String[] emailPasswordArr = emailPasword.split(",");
+        if (emailPasswordArr.length == 2) {
+            User user = userStorage.getUserByEmailAndPassword(emailPasswordArr[0], emailPasswordArr[1]);
+            if (user == null) {
+                System.out.println("invalid email or password");
+                System.out.println("սխալ էլ. հասցե կամ գաղտնաբառ");
+            } else {
+                userLogin();
+                System.out.println("e-mail Email, password added");
+                System.out.println("էլ. փոստ, գաղտնաբառ ավելացվեց");
+            }
+        } else {
+            login();
+        }
+    }
+}
