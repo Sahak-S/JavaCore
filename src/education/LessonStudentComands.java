@@ -20,9 +20,7 @@ public interface LessonStudentComands {
 
 
 
-    static void printCommands() {
-
-
+    static void printCommandsAdmin() {
 
         System.out.println("Please input " + LOGOUT + " for LOGOUT");
         System.out.println("Please input " + ADD_LESSON + " for ADD_LESSON");
@@ -36,13 +34,22 @@ public interface LessonStudentComands {
 
     }
 
-    static void prinduserComands(){
+    static void printComandsUser(){
+        System.out.println("Please input " + LOGOUT + " for LOGOUT");
+        System.out.println("Please input " + ADD_LESSON + " for ADD_LESSON");
+        System.out.println("Please input " + ADD_STUDENT + " for ADD_STUDENT");
+        System.out.println("Please input " + PRINT_STUDENTS + " for PRINT_STUDENT");
+        System.out.println("Please input " + PRINT_STUDENTS_BY_LESSON + " for PRINT_STUDENTS_BY_LESSON");
+        System.out.println("Please input " + PRINT_LESSONS + " for PRINT_LESSONS");
+    }
 
+    static void prinduserComands(){
 
         System.out.println("Please input " + EXIT + " for EXIT");
         System.out.println("Please input " + LOGIN + " for LOGIN");
         System.out.println("Please input " + REGISTR + " for REGISTR");
 
     }
+
 }
 

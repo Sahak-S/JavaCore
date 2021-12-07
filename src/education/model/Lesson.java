@@ -17,6 +17,10 @@ public class Lesson {
         this.price = price;
     }
 
+    public Lesson(String java, String s, String karen, String s1) {
+    }
+
+
     public String getLessonName() {
         return lessonName;
     }

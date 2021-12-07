@@ -16,6 +16,7 @@ public class LessonStorage {
         lessons[size++] = lesson;
     }
 
+
     private void extend() {
         Lesson[] tmp = new Lesson[lessons.length + 10];
         System.arraycopy(lessons, 0, tmp, 0, lessons.length);

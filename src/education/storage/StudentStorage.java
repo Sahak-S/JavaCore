@@ -18,6 +18,7 @@ public class StudentStorage {
         students[size++] = student;
     }
 
+
     private void extend() {
         Student[] tmp = new Student[students.length + 10];
         System.arraycopy(students, 0, tmp, 0, students.length);

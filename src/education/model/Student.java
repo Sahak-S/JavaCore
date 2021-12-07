@@ -29,6 +29,7 @@ public class Student {
         this.lesson = lesson;
     }
 
+
     public Student(String poxos, String poxosyan, int age, String s, String email, String phone, String lesson) {
     }
 
@@ -104,6 +105,7 @@ public class Student {
     }
 
     @Override
+
     public String toString() {
         return "Student{" +
                 "name='" + name + '\'' +
