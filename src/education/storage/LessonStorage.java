@@ -28,12 +28,10 @@ public class LessonStorage {
             System.out.println(lessons[i]);
         }
     }
-
-
     public void deleteLesson(String lesson) {
         for (int i = 0; i < size; i++) {
             if (lessons[i].getLessonName().equals(lesson)) {
-                ArrayUtil.deleteByIndex(lessons,i,size);
+                ArrayUtil.deleteByIndex(lessons, i, size);
                 size--;
                 System.out.println("The lesson has been deleted");
                 System.out.println("Դասը ջնջված է");
@@ -50,5 +48,6 @@ public class LessonStorage {
         }
         return null;
     }
+
 
 }

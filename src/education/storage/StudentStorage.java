@@ -17,14 +17,11 @@ public class StudentStorage {
         }
         students[size++] = student;
     }
-
-
     private void extend() {
         Student[] tmp = new Student[students.length + 10];
         System.arraycopy(students, 0, tmp, 0, students.length);
         students = tmp;
     }
-
     public Student getByEmail(String email) {
         for (int i = 0; i < size; i++) {
             if (students[i].getEmail().equals(email)) {

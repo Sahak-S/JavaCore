@@ -2,6 +2,7 @@ package education.storage;
 
 
 import education.model.User;
+import education.exception.UserNotFoundException;
 
 public class UserStorage {
 
@@ -23,7 +24,6 @@ public class UserStorage {
 
 
     public void print() {
-
         for (int i = 0; i < size; i++) {
             System.out.println(users[i]);
         }
@@ -40,31 +40,16 @@ public class UserStorage {
 //        return null;
 //    }
 
-    public User getByEmail(String email) {
+
+    public User getByEmail(String email) throws UserNotFoundException {
         for (int i = 0; i < size; i++) {
-            if (users[i].getEmail().equals(email))
+            if (users[i].getEmail().equals(email)) {
                 return users[i];
-        }
-        return null;
-    }
-
-    public User getBYPassword(String password) {
-        for (int i = 0; i < size; i++) {
-            if (users[i].getPassword().equals(password))
-                return users[i];
-        }
-        return null;
-    }
-
-    public User getByType(String type) {
-        for (int i = 0; i < size; i++) {
-            if (users[i].getType().equals(type)) ;
-            return users[i];
+            }
 
         }
-        return null;
+        throw new UserNotFoundException("There is no user: email" + email);
     }
-
 }
 
 
