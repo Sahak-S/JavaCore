@@ -22,7 +22,6 @@ public class LessonStorage {
         System.arraycopy(lessons, 0, tmp, 0, lessons.length);
         lessons = tmp;
     }
-
     public void print() {
         for (int i = 0; i < size; i++) {
             System.out.println(lessons[i]);
@@ -39,7 +38,6 @@ public class LessonStorage {
             }
         }
     }
-
     public Lesson getByLessonName(String lessonName) {
 
         for (int i = 0; i < size; i++) {

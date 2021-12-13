@@ -4,11 +4,10 @@ import java.util.Objects;
 
 public class Lesson {
 
-
-    private String lessonName;
-    private double duration;       // դասընթացի տևողությունն է
+    private String lessonName;      // դասի անունը
+    private double duration;        // դասընթացի տևողությունն է
     private String lecturerName;    //դասախոսի անունն է
-    private int price;           //դասընթացի գինն է
+    private int price;             //դասընթացի գինն է
 
     public Lesson(String lessonName, double duration, String lecturerName, int price) {
         this.lessonName = lessonName;
@@ -16,15 +15,12 @@ public class Lesson {
         this.lecturerName = lecturerName;
         this.price = price;
     }
-
     public Lesson(String java, String s, String karen, String s1) {
     }
-
 
     public String getLessonName() {
         return lessonName;
     }
-
     public void setLessonName(String lessonName) {
         this.lessonName = lessonName;
     }

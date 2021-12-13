@@ -11,6 +11,8 @@ import java.util.Objects;
 
 
 public class Student {
+
+
     private String name;
     private String surname;
     private int age;
@@ -29,10 +31,8 @@ public class Student {
         this.lesson = lesson;
     }
 
-
     public Student(String poxos, String poxosyan, int age, String s, String email, String phone, String lesson) {
     }
-
     public String getName() {
         return name;
     }

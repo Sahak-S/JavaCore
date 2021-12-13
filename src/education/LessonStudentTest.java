@@ -23,8 +23,8 @@ public class LessonStudentTest implements LessonStudentComands {
 
     public static void main(String[] args) {
 
-        userStorage.add(new User("poxos", "poxosyan", "poxos@mail.ru", "poxos", "admin"));
-        userStorage.add(new User("petros", "petrosyan", "petros@mail.ru", "petros", "user"));
+//        userStorage.add(new User("poxos", "poxosyan", "poxos@mail.ru", "poxos", "admin"));
+//        userStorage.add(new User("petros", "petrosyan", "petros@mail.ru", "petros", "user"));
 
         Lesson[] lesson = new Lesson[2];
         lesson[0] = lessonStorage.getByLessonName("java");
@@ -52,47 +52,51 @@ public class LessonStudentTest implements LessonStudentComands {
         }
     }
 
-
     private static void register() {
         System.out.println("please input email");
         System.out.println("Խնդրում եմ մուտքագրեք ձեր էլ");
         String email = scanner.nextLine();
         User byEmail = null;
-
         try {
-            byEmail = userStorage.getByEmail(email);
-            System.out.println("Please input name");
-            System.out.println("Խնդրում եմ մուտքագրեք ձեր անունը");
-            String name = scanner.nextLine();
-
-            System.out.println("Please input surname");
-            System.out.println("Խնդրում ենք մուտքագրել ձեր ազգանունը");
-            String surname = scanner.nextLine();
-
-            System.out.println("Please input password");
-            System.out.println("Խնդրում եմ գաղտնաբառ ստեղծեք");
-            String password = scanner.nextLine();
-
-            System.out.println("Please input type(ADMIN,USER)");
-            System.out.println("Խնդրում ենք մուտքագրել տեսակը (ADMIN, USER)");
-            String type = scanner.nextLine();
-            if (type.equalsIgnoreCase("admin")
-                    || type.equalsIgnoreCase("user")) {
-                User user = new User();
-                user.setEmail(email);
-                user.setName(name);
-                user.setSurname(surname);
-                user.setPassword(password);
-                user.setType(type.toUpperCase());
-                userStorage.add(user);
-                System.out.println("User was registered!");
-                System.out.println("Օգտատերը գրանցված է");
-            } else {
-                System.out.println("Invalid type");
-                System.out.println("Անվավեր տեսակ");
-            }
+            userStorage.getByEmail(email);
+            System.out.println("User with this email already exists");
+            System.out.println("Այս էլփոստով օգտվողն արդեն գոյություն ունի");
         } catch (UserNotFoundException e) {
-            System.out.println(e.getMessage());
+            if (byEmail == null) {
+                System.out.println("Please input name");
+                System.out.println("Խնդրում ենք մուտքագրել անունը");
+                String name = scanner.nextLine();
+
+                System.out.println("Please input surname");
+                System.out.println("Խնդրում ենք մուտքագրել ազգանունը");
+                String surname = scanner.nextLine();
+
+                System.out.println("Please input password");
+                System.out.println("Խնդրում ենք մուտքագրել գախնաբառը");
+                String password = scanner.nextLine();
+
+                System.out.println("Please input type(ADMIN,USER)");
+                System.out.println("Խնդրում ենք մուտքագրել տիպը (ADMIN,USER)");
+                String type = scanner.nextLine();
+                if (type.equalsIgnoreCase("admin")
+                        || type.equalsIgnoreCase("user")) {
+                    User user = new User();
+                    user.setEmail(email);
+                    user.setName(name);
+                    user.setSurname(surname);
+                    user.setPassword(password);
+                    user.setType(type.toUpperCase());
+                    userStorage.add(user);
+                    System.out.println("User was registered!");
+                    System.out.println("Օգտատերը գրանցված է");
+                } else {
+                    System.out.println("Invalid type");
+                    System.out.println("Անվավեր տեսակ");
+                }
+            } else {
+                System.err.println("user with " + email + " already exists");
+                System.err.println("օգտագործված " +  email + " արդեն գոյություն ունի");
+            }
         }
 
     }
@@ -106,27 +110,21 @@ public class LessonStudentTest implements LessonStudentComands {
         System.out.println("please input email");
         System.out.println("Խնդրում եմ մուտքագրեք ձեր էլ");
         String email = scanner.nextLine();
-        User byEmail = null;
+
         try {
-            byEmail = userStorage.getByEmail(email);
-            if (byEmail != null) {
-                System.out.println("please input password");
-                System.out.println("Խնդրում ենք մուտքագրել ձեր գաղտնաբառը");
-                String password = scanner.nextLine();
-                if (byEmail.getPassword().equals(password)) {
-                    if (byEmail.getType().equalsIgnoreCase("ADMIN")) {
-                        adminLogin();
-                    } else if (byEmail.getType().equalsIgnoreCase("USER")) {
-                        userLogin();
-                    }
-                } else {
-                    System.out.println("password is wrong!");
-                    System.out.println("գաղտնաբառը սխալ է");
+            User user = userStorage.getByEmail(email);
+            System.out.println("please input password");
+            System.out.println("Խնդրում ենք մուտքագրել ձեր գաղտնաբառը");
+            String password = scanner.nextLine();
+            if (user.getPassword().equals(password)) {
+                if (user.getType().equalsIgnoreCase("ADMIN")) {
+                    adminLogin();
+                } else if (user.getType().equalsIgnoreCase("USER")) {
+                    userLogin();
                 }
             } else {
-                System.err.println("user with " + email + " does not exists");
-                System.out.println("օգտատերն արդեն " + email + " գոյություն ունի");
-
+                System.out.println("password is wrong!");
+                System.out.println("գաղտնաբառը սխալ է");
             }
         } catch (UserNotFoundException e) {
             System.out.println(e.getMessage());

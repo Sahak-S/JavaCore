@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.Objects;
 
 public class User {
-
     private String name;          // անուն
     private String surname;       // ազգանուն
     private String email;         // էլ. հասցե

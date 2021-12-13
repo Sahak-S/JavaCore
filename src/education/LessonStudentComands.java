@@ -31,8 +31,9 @@ public interface LessonStudentComands {
         System.out.println("Please input " + DELETE_LESSON_BY_NAME + " for DELETE_LESSON_BY_NAME");
         System.out.println("Please input " + DELETE_STUDENT_BY_EMAIL + " for DELETE_STUDENT_BY_EMAIL");
         System.out.println("Please input " + PRINT_REGISTR + " for PRINT_REGISTR ") ;
-
     }
+
+
     static void printComandsUser(){
         System.out.println("Please input " + LOGOUT + " for LOGOUT");
         System.out.println("Please input " + ADD_LESSON + " for ADD_LESSON");
