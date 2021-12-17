@@ -1,4 +1,4 @@
-package Array;
+package array;
 
 public class Averag {
     public static void main(String[] args) {
