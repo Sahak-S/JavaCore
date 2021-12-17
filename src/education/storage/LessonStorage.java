@@ -5,7 +5,6 @@ import education.util.ArrayUtil;
 
 public class LessonStorage {
 
-
     private Lesson[] lessons = new Lesson[16];
     private int size = 0;
 

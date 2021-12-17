@@ -33,7 +33,6 @@ public interface LessonStudentComands {
         System.out.println("Please input " + PRINT_REGISTR + " for PRINT_REGISTR ") ;
     }
 
-
     static void printComandsUser(){
         System.out.println("Please input " + LOGOUT + " for LOGOUT");
         System.out.println("Please input " + ADD_LESSON + " for ADD_LESSON");

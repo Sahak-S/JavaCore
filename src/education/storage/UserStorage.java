@@ -40,6 +40,7 @@ public class UserStorage {
 //        return null;
 //    }
 
+
     public User getByEmail(String email) throws UserNotFoundException {
         for (int i = 0; i < size; i++) {
             if (users[i].getEmail().equals(email)) {

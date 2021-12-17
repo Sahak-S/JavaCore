@@ -3,6 +3,7 @@ package education;
 import education.model.Lesson;
 import education.model.Student;
 import education.model.User;
+import education.model.UserType;
 import education.storage.LessonStorage;
 import education.storage.StudentStorage;
 import education.storage.UserStorage;
@@ -78,27 +79,21 @@ public class LessonStudentTest implements LessonStudentComands {
                 System.out.println("Please input type(ADMIN,USER)");
                 System.out.println("Խնդրում ենք մուտքագրել տիպը (ADMIN,USER)");
                 String type = scanner.nextLine();
-                if (type.equalsIgnoreCase("admin")
-                        || type.equalsIgnoreCase("user")) {
+
                     User user = new User();
                     user.setEmail(email);
                     user.setName(name);
                     user.setSurname(surname);
                     user.setPassword(password);
-                    user.setType(type.toUpperCase());
+                    user.setType(UserType.valueOf(type.toUpperCase()));
                     userStorage.add(user);
                     System.out.println("User was registered!");
                     System.out.println("Օգտատերը գրանցված է");
-                } else {
-                    System.out.println("Invalid type");
-                    System.out.println("Անվավեր տեսակ");
-                }
             } else {
                 System.err.println("user with " + email + " already exists");
                 System.err.println("օգտագործված " +  email + " արդեն գոյություն ունի");
             }
         }
-
     }
 
     private static void printRegistr() {
@@ -117,9 +112,9 @@ public class LessonStudentTest implements LessonStudentComands {
             System.out.println("Խնդրում ենք մուտքագրել ձեր գաղտնաբառը");
             String password = scanner.nextLine();
             if (user.getPassword().equals(password)) {
-                if (user.getType().equalsIgnoreCase("ADMIN")) {
+                if (user.getType() == UserType.ADMIN) {
                     adminLogin();
-                } else if (user.getType().equalsIgnoreCase("USER")) {
+                } else if (user.getType() == UserType.USER) {
                     userLogin();
                 }
             } else {
