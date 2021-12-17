@@ -11,6 +11,8 @@ public class StudentStorage {
     private Student[] students = new Student[16];
     private int size = 0;
 
+
+
     public void add(Student student) {
         if (students.length == size) {
             extend();

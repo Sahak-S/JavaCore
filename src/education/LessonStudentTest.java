@@ -104,6 +104,7 @@ public class LessonStudentTest implements LessonStudentComands {
         }
     }
 
+
     private static void printRegistr() {
         userStorage.print();
     }

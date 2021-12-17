@@ -9,12 +9,14 @@ public class LessonStorage {
     private Lesson[] lessons = new Lesson[16];
     private int size = 0;
 
+
     public void add(Lesson lesson) {
         if (lessons.length == size) {
             extend();
         }
         lessons[size++] = lesson;
     }
+
 
 
     private void extend() {
