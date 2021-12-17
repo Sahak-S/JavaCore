@@ -59,7 +59,6 @@ public class Student {
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
-
     public String getEmail() {
         return email;
     }

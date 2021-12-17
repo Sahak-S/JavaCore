@@ -32,6 +32,7 @@ public class LessonStudentTest implements LessonStudentComands {
         lesson[1] = lessonStorage.getByLessonName("AutoCat");
         studentStorage.add(new Student("poxos", "poxosyan", 3, "18 / 08 / 1978", "poxos.@mail.ru", "094-94-94-23", "lesson"));
 
+
         boolean isRun = true;
         while (isRun) {
             LessonStudentComands.prinduserComands();
@@ -80,6 +81,7 @@ public class LessonStudentTest implements LessonStudentComands {
                 System.out.println("Խնդրում ենք մուտքագրել տիպը (ADMIN,USER)");
                 String type = scanner.nextLine();
 
+                try {
                     User user = new User();
                     user.setEmail(email);
                     user.setName(name);
@@ -87,11 +89,17 @@ public class LessonStudentTest implements LessonStudentComands {
                     user.setPassword(password);
                     user.setType(UserType.valueOf(type.toUpperCase()));
                     userStorage.add(user);
+
                     System.out.println("User was registered!");
                     System.out.println("Օգտատերը գրանցված է");
+                }catch (IllegalArgumentException e1){
+                    System.out.println("There is no such type.please enter (ADMIN or USER)");
+                    System.out.println("Նման տեսակ չկա:Խնդրում ենք մուտքագրել (ADMIN կամ USER)");
+                }
+
             } else {
                 System.err.println("user with " + email + " already exists");
-                System.err.println("օգտագործված " +  email + " արդեն գոյություն ունի");
+                System.err.println("օգտագործված " + email + " արդեն գոյություն ունի");
             }
         }
     }
@@ -124,8 +132,6 @@ public class LessonStudentTest implements LessonStudentComands {
         } catch (UserNotFoundException e) {
             System.out.println(e.getMessage());
         }
-
-
     }
 
 

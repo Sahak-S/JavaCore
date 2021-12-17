@@ -9,7 +9,6 @@ public class Lesson {
     private String lecturerName;    //դասախոսի անունն է
     private int price;             //դասընթացի գինն է
 
-
     public Lesson(String lessonName, double duration, String lecturerName, int price) {
         this.lessonName = lessonName;
         this.duration = duration;
