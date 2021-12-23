@@ -1,29 +1,25 @@
-package author;
-
-import java.nio.charset.Charset;
-import java.util.Objects;
+package homework.author;
 
 public class Author {
 
     private String name;
-    private String surnname;
+    private String surname;
     private int age;
     private String email;
     private String gender;
 
-    public Author(String name, String surnname, int age, String email, String gender) {
+    public Author(String name, String surname, int age, String email, String gender) {
         this.name = name;
-        this.surnname = surnname;
+        this.surname = surname;
         this.age = age;
         this.email = email;
         this.gender = gender;
     }
 
-    public Author(String william, String shakespeare, String s, int i, String male) {
+    public Author() {
     }
 
     public String getName() {
-
         return name;
     }
 
@@ -31,10 +27,12 @@ public class Author {
         this.name = name;
     }
 
-    public String getSurnname() {
-        return surnname;
+    public String getSurname() {
+        return surname;
     }
+
     public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public int getAge() {
@@ -61,29 +59,39 @@ public class Author {
         this.gender = gender;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Author author = (Author) o;
-        return age == author.age && Objects.equals(name, author.name) && Objects.equals(surnname, author.surnname) && Objects.equals(email, author.email) && Objects.equals(gender, author.gender);
+
+        if (age != author.age) return false;
+        if (name != null ? !name.equals(author.name) : author.name != null) return false;
+        if (surname != null ? !surname.equals(author.surname) : author.surname != null) return false;
+        if (email != null ? !email.equals(author.email) : author.email != null) return false;
+        return gender != null ? gender.equals(author.gender) : author.gender == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surnname, age, email, gender);
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (surname != null ? surname.hashCode() : 0);
+        result = 31 * result + age;
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (gender != null ? gender.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "Author{" +
                 "name='" + name + '\'' +
-                ", surnname='" + surnname + '\'' +
+                ", surname='" + surname + '\'' +
                 ", age=" + age +
                 ", email='" + email + '\'' +
                 ", gender='" + gender + '\'' +
                 '}';
     }
-
-
 }

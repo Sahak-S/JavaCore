@@ -8,6 +8,8 @@ public class Main {
 
         int[] m = new int[3];
         Scanner scanner = new Scanner(System.in);
+        System.out.println("մուտքագրեք թիվը");
+
         int a = 0;
         try {
             a = scanner.nextInt();
@@ -18,5 +20,7 @@ public class Main {
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("կանչել ենք մասիվում գոյություն չունեցող էլեմենտ:" + e);
         }
+
+
     }
 }
