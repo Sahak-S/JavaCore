@@ -10,7 +10,7 @@ public class TComp implements Comparator<String> {
         // найти индекс символа, с которого начинается фамилия
 
         i = o1Str.lastIndexOf(' ');
-        j = o1Str.lastIndexOf(' ');
+        j = o2Str.lastIndexOf(' ');
         k = o1Str.substring(i).compareTo(o2Str.substring(j));
 
         if (k == 0) {                                                                  //Фамилии совпадают, проверить имя

@@ -1,9 +1,7 @@
-package education.storage;
+package homework.education.storage;
 
-
-import education.model.User;
-import education.exception.UserNotFoundException;
-import education.model.UserType;
+import author.model.User;
+import homework.education.exception.UserNotFoundException;
 
 public class UserStorage {
 
@@ -22,7 +20,6 @@ public class UserStorage {
         System.arraycopy(users, 0, tmp, 0, users.length);
         users = tmp;
     }
-
 
     public void print() {
         for (int i = 0; i < size; i++) {
@@ -52,5 +49,3 @@ public class UserStorage {
 
     }
 }
-
-

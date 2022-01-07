@@ -10,7 +10,7 @@ public class TreeMapDemo2 {
         // Использовать компаратор для сортировки счетов
         // по фамилиям вкладчиков
 
-        TreeMap<String, Double> tm = new TreeMap<>(new TComp());
+        TreeMap<String, Double> tm = new TreeMap<>();
 
         tm.put("Poxox Poxosyan", new Double(123.14));
         tm.put("David Poxosyan", new Double(-458.14));
@@ -25,8 +25,9 @@ public class TreeMapDemo2 {
             System.out.println(me.getValue());
         }
         System.out.println();
+
         //внести сумму 1000 на счет  Aram Petrosyan
-        double balance = tm.get("Aram Petrosyan");
+        Double balance = tm.get("Aram Petrosyan");
         tm.put("Aram Petrosyan", balance + 1000);
         System.out.println(tm.get("Aram Petrosyan"));
     }

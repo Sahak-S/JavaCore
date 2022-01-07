@@ -1,14 +1,14 @@
-package education.model;
+package author.model;
 
-import java.util.Date;
-import java.util.Objects;
+import java.io.Serializable;
 
-public class User {
-    private String name;          // անուն
-    private String surname;       // ազգանուն
-    private String email;         // էլ. հասցե
-    private String password;       // գախնաբառ
-    private UserType type;          // տիպ
+public class User implements Serializable {
+
+    private String name;
+    private String surname;
+    private String email;
+    private String password;
+    private UserType type;
 
     public User(String name, String surname, String email, String password, UserType type) {
         this.name = name;
@@ -18,15 +18,12 @@ public class User {
         this.type = type;
     }
 
-
-
-
     public User() {
     }
+
     public String getName() {
         return name;
     }
-
 
     public void setName(String name) {
         this.name = name;
@@ -68,13 +65,24 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         User user = (User) o;
-        return Objects.equals(name, user.name) && Objects.equals(surname, user.surname) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(type, user.type);
+
+        if (name != null ? !name.equals(user.name) : user.name != null) return false;
+        if (surname != null ? !surname.equals(user.surname) : user.surname != null) return false;
+        if (email != null ? !email.equals(user.email) : user.email != null) return false;
+        if (password != null ? !password.equals(user.password) : user.password != null) return false;
+        return type != null ? type.equals(user.type) : user.type == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, email, password, type);
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (surname != null ? surname.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (type != null ? type.hashCode() : 0);
+        return result;
     }
 
     @Override
@@ -83,7 +91,7 @@ public class User {
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
-//                ", password='" + password + '\'' +        //    գախնաբառը պարտադիր չէ տեսնել
+ //               ", password='" + password + '\'' +
                 ", type='" + type + '\'' +
                 '}';
     }

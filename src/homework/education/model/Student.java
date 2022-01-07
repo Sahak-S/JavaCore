@@ -1,12 +1,10 @@
-package education.model;
+package homework.education.model;
 
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
-
 public class Student {
-
 
     private String name;
     private String surname;
@@ -80,7 +78,6 @@ public class Student {
     public Lesson[] getLesson() {
         return lesson;
     }
-
 
     public void setLesson(Lesson[] lesson) {
         this.lesson = lesson;
