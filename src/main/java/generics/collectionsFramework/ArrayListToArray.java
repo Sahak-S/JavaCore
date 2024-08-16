@@ -20,7 +20,7 @@ public class ArrayListToArray {
 
         int sum = 0;
         for (int i : ia) {
-            sum += i;
+            sum = i + 1;
         }
         System.out.println(sum);
     }

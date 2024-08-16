@@ -10,7 +10,7 @@ public class Menu {
             System.out.println("2. swich");
             System.out.println("3. while");
             System.out.println("4. du-while");
-            System.out.println("for\n");
+            System.out.println("5. for\n");
             System.out.println("Ընտրեք համապատասղան կոճակը :");
             choice = (char) System.in.read();
         } while (choice < '1' || choice > '5');

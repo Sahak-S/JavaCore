@@ -1,6 +1,5 @@
 package aList;
 
-import org.omg.IOP.TAG_RMI_CUSTOM_MAX_STREAM_FORMAT;
 
 public class IsDemo {
 

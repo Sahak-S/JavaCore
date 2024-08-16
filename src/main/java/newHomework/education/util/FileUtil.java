@@ -5,6 +5,7 @@ import newHomework.education.model.Student;
 import newHomework.education.model.User;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.Map;
 
@@ -44,7 +45,7 @@ public class FileUtil {
                 e.printStackTrace();
             }
         }else {
-            try(ObjectInputStream in = new ObjectInputStream(new FileInputStream(userFile))) {
+            try(ObjectInputStream in = new ObjectInputStream(Files.newInputStream(userFile.toPath()))) {
                 in.readObject();
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();

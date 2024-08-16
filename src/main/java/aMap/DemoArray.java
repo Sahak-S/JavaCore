@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class DemoArray {
     public static void main(String[] args) {
-        int[] array = {6, 2, 9, 2, 6, 2, 13, 4, 5, 3};
+        int[] array = {6, 9, 2, 6, 2, 13, 4, 5, 3};
 
 
 //        տպել թե որ էլեմենտներն են կրկնվում

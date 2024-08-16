@@ -3,7 +3,7 @@ package grup1;
 public class ArreyExample {
     public static void main(String[] args) {
 
-        int[] array = {6, 2, 6, 9, 8, 0, 4, 8,};
+        int[] array = {6, 2, 6,6, 9, 8, 0, 4, 8,};
 
         for (int i = 0; i < array.length-1; i++) {
             for (int j = i + 1; j < array.length-1; j++) {

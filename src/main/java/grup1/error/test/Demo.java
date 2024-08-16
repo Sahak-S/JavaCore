@@ -9,6 +9,8 @@ public class Demo {
     }
 
     public static void main(String[] args) {
+
+
         Demo m = new Demo();
         int anInt = 6;
         m.print(anInt);

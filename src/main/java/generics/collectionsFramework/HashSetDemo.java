@@ -12,6 +12,7 @@ public class HashSetDemo {
         hs.add("core");
         hs.add("google");
         hs.add("java");
+        hs.add("java");
         hs.add("c++");
         hs.add("c#");
         hs.add("windows");
