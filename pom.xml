@@ -49,9 +49,33 @@
             <artifactId>gson</artifactId>
             <version>2.10.1</version>
         </dependency>
+
+
+            <!-- Sphinx4 Core (основная библиотека распознавания речи) -->
+            <dependency>
+                <groupId>edu.cmu.sphinx</groupId>
+                <artifactId>sphinx4-core</artifactId>
+                <version>5prealpha</version>
+            </dependency>
+
+            <!-- Sphinx4 Data (модели акустики, лексиконы и пр.) -->
+            <dependency>
+                <groupId>edu.cmu.sphinx</groupId>
+                <artifactId>sphinx4-data</artifactId>
+                <version>5prealpha</version>
+            </dependency>
+
     </dependencies>
 
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories>
+
     <properties>
+
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
