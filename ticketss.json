@@ -1,0 +1,24 @@
+{
+  "flights": [
+    {
+      "carrier": "Aeroflot",
+      "departureTime": 7,
+      "arrivalTime": 8,
+      "price": 500
+    },
+    {
+      "carrier": "British Airways",
+
+      "departureTime": 8,
+      "arrivalTime": 9,
+      "price": 600
+    },
+    {
+      "carrier": "Lufthansa",
+
+      "departureTime": 6,
+      "arrivalTime": 7,
+      "price": 550
+    }
+  ]
+}

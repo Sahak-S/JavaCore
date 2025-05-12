@@ -51,19 +51,26 @@
         </dependency>
 
 
-            <!-- Sphinx4 Core (основная библиотека распознавания речи) -->
-            <dependency>
-                <groupId>edu.cmu.sphinx</groupId>
-                <artifactId>sphinx4-core</artifactId>
-                <version>5prealpha</version>
-            </dependency>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.14.3</version>
+        </dependency>
 
-            <!-- Sphinx4 Data (модели акустики, лексиконы и пр.) -->
-            <dependency>
-                <groupId>edu.cmu.sphinx</groupId>
-                <artifactId>sphinx4-data</artifactId>
-                <version>5prealpha</version>
-            </dependency>
+<!--            &lt;!&ndash; Sphinx4 Core (основная библиотека распознавания речи) &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>edu.cmu.sphinx</groupId>-->
+<!--                <artifactId>sphinx4-core</artifactId>-->
+<!--                <version>5prealpha</version>-->
+<!--            </dependency>-->
+
+<!--            &lt;!&ndash; Sphinx4 Data (модели акустики, лексиконы и пр.) &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>edu.cmu.sphinx</groupId>-->
+<!--                <artifactId>sphinx4-data</artifactId>-->
+<!--                <version>5prealpha</version>-->
+<!--            </dependency>-->
+
 
     </dependencies>
 
